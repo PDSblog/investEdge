@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="market.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <div class="logo"></div>
+        <div onclick="goHome()">
+          <span class="material-symbols-outlined"> home </span>Home
+        </div>
+        <div><span class="material-symbols-outlined"> store </span>Market</div>
+        <div>
+          <span class="material-symbols-outlined"> business_center </span
+          >Portfolio
+        </div>
+        <div>
+          <span class="material-symbols-outlined"> balance</span>Position
+        </div>
+      </div>
+      <div class="side"><button class="button">SignUp</button></div>
+    </nav>
+    <main>
+      <div>
+        <div class="card">
+          <div class="name">Stock</div>
+          <div class="data">Price</div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function goHome() {
+        window.open("/");
+      }
+
+      async function fetchStockPrice() {
+            const symbol ="YESBANK.NS"
+
+                const response = await fetch("./market", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ symbol })
+                });
+
+                const data = await response.json();
+
+                
+         
+        }
+
+
+        //setInterval(fetchStockPrice, 1000);
+    </script>
+  </body>
+</html>

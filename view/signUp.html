@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url("https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")
+          no-repeat center center/cover;
+      }
+      .form-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+      }
+      .form-container h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+      .form-container label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+        font-size: 14px;
+        text-align: left;
+      }
+      .form-container input[type="text"],
+      .form-container input[type="date"],
+      .form-container input[type="tel"],
+      .form-container input[type="email"],
+      .form-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      .form-container input[type="text"]:focus,
+      .form-container input[type="date"]:focus,
+      .form-container input[type="tel"]:focus,
+      .form-container input[type="email"]:focus,
+      .form-container input[type="password"]:focus {
+        border-color: #01ff66;
+        outline: none;
+        box-shadow: 0 0 5px rgba(1, 255, 102, 0.5);
+      }
+      .password {
+        position: relative;
+      }
+      .password input[type="password"],
+      .password input[type="text"] {
+        width: 100%;
+        padding-right: 40px;
+      }
+      .password .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #777;
+      }
+      .password .eye-icon:hover {
+        color: #333;
+      }
+      .form-container input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #01ff66;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .form-container input[type="submit"]:hover {
+        background-color: #00cc55;
+      }
+      .form-container input[type="submit"]:active {
+        background-color: #00b34d;
+      }
+      .back-option {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #555;
+      }
+      .back-option a {
+        color: #1575dd;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .back-option a:hover {
+        text-decoration: underline;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Sign Up</h2>
+      <form action="/signUp" method="POST">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your full name"
+          required
+        />
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" />
+
+        <label for="number">Phone Number</label>
+        <input
+          type="tel"
+          id="number"
+          name="number"
+          placeholder="Enter your phone number"
+          required
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <div class="password">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <span class="eye-icon" onclick="togglePassword('password')">👁️</span>
+        </div>
+
+        <div class="password">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+            required
+          />
+          <span class="eye-icon" onclick="togglePassword('confirmPassword')"
+            >👁️</span
+          >
+        </div>
+
+        <input type="submit" value="SIGN UP →" required />
+      </form>
+      <div class="back-option">
+        <a href="./">← Back</a>
+      </div>
+    </div>
+
+    <script>
+      function togglePassword(fieldId) {
+        const passwordField = document.getElementById(fieldId);
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+        } else {
+          passwordField.type = "password";
+        }
+      }
+
+
+      function handleSubmit(event) {
+    event.preventDefault();
+
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+alert()
+  
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    window.open("./login");
+  }
+
+    </script>
+  </body>
+</html>
